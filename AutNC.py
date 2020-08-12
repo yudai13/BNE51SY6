@@ -30,6 +30,7 @@ class Application(tk.Frame):
 
     def select_process(self):
         select_process_win = tk.Toplevel(self)
+        select_process_win.grab_set()
         select_process_win.geometry("270x300")
 
         width = 20
@@ -43,12 +44,29 @@ class Application(tk.Frame):
             tk.Button(select_process_win,text=process_list[i],command=self.input_parameter,width=20).place(x=start_x,y=start_y+margin_y*i)
 
     def input_parameter(self):
+        input_parameter_win = tk.Toplevel(self)
+        input_parameter_win.grab_set()
+        input_parameter_win.geometry("270x300")
+
+
+
+
+#抽象
+class Process():
+    def __init__(self):
+        pass
+    
+#具体1
+class GaikeiProcess(Process):
+    def __init__(self):
         pass
 
+#具体2
+class DrillProcess(Process):
+    def __init__(self):
+        pass
 
-
-
-
+    
 
 
 
@@ -57,6 +75,7 @@ class Application(tk.Frame):
 def main():
     win = tk.Tk()
     win.resizable(width=False, height=False)
+    process = 
     app = Application(master=win)
     app.mainloop()
 
